@@ -1,5 +1,7 @@
 FROM nginx:alpine
 
+ADD nginx.init /etc/init.d/nginx
+
 RUN apk update && \
     apk add openssh sudo openrc && \
     mkdir -p /var/www/html && \
