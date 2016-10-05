@@ -8,22 +8,19 @@ for _curVar in "${envs[@]}"
 do
   value=`echo "$_curVar" | awk -F = '{print $2}'`
   name=`echo "$_curVar" | awk -F = '{print $1}' | xargs`
+
   if [ "$name" == "" ]
   then
     continue
   fi
 
-  if [ "$name" == "GITHOST" ]
-  then
-    GITHOST="$value"
-  fi
   if [ "$name" == "DEVUSER" ]
   then
     DEVUSER="$value"
   fi
-  if [ "$name" == "TIMEZONE" ]
+  if [ "$name" == "DEVPASS" ]
   then
-    sed -i -e "s~;date.timezone\s*=.*~date.timezone=$value~g" /usr/local/etc/php/php.ini
+    DEVPASS="$value"
   fi
 done
 
