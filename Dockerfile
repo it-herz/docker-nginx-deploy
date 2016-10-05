@@ -1,6 +1,6 @@
 FROM nginx:alpine
 
-ADD ./init/nginx /etc/init.d/
+ADD init /etc/init.d/
 
 RUN apk update && \
     apk add openssh sudo openrc && \
