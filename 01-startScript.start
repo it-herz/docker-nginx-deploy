@@ -1,7 +1,5 @@
 #!/bin/bash
 
-echo "HELLO" > /test
-
 IFS=';;;;'
 envs=(`cat /proc/1/environ | xargs -0 -n 1 echo ';;;;'`)
 unset IFS
