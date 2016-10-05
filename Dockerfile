@@ -5,7 +5,7 @@ RUN apk update && \
     mkdir -p /var/www/html && \
     chown nginx /var/www/html && \
     rc-update add local default && \
-    rc-update add ssh sysinit && \
+    rc-update add sshd sysinit && \
     rc-update add nginx sysinit && \
     sed -i 's/#PubkeyAuthentication.*/PubkeyAuthentication yes/ig' /etc/ssh/sshd_config && \
     sed -i 's/#RSAAuthentication.*/RSAAuthentication yes/ig' /etc/ssh/sshd_config
