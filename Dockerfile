@@ -11,6 +11,9 @@ RUN apk update && \
     echo "/sbin/openrc" > /root/rc && chmod +x /root/rc && \
     mkdir -p /run/openrc && touch /run/openrc/softlevel && \
     #=======================================================
+    #===================Cleanup=============================
+    rm /etc/nginx/conf.d/*
+    #=======================================================
     rc-update add nginx sysinit && \
     rc-update add sshd sysinit && \
     rc-update add local default && \
