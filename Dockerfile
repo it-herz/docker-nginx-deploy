@@ -15,8 +15,7 @@ RUN apk update && \
     rm /etc/nginx/conf.d/* && \ 
     rc-update add nginx sysinit && \
     rc-update add sshd sysinit && \
-    rc-update add local default && \
-    openrc default && \
+    rc-update add local sysinit && \
     mkdir -p /var/www/html && \
     chown nginx /var/www/html && \
     sed -i 's/#PubkeyAuthentication.*/PubkeyAuthentication yes/ig' /etc/ssh/sshd_config && \
@@ -25,7 +24,7 @@ RUN apk update && \
 ADD nginx.conf /etc/nginx/nginx.conf
 ADD 01-startScript.start /etc/local.d
 
-EXPOSE 22
+EXPOSE 22 80
 
 ENTRYPOINT [ "/bin/bash", "--init-file", "/root/rc" ]
 
