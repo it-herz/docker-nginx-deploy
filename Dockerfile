@@ -2,6 +2,7 @@ FROM nginx:alpine
 
 RUN apk update && \
     apk add openssh sudo && \
+    mkdir -p /var/www/html && \
     chown nginx /var/www/html && \
     rc-update add ssh sysinit && \
     rc-update add nginx sysinit && \
