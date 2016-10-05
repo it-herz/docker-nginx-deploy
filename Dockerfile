@@ -2,6 +2,7 @@ FROM nginx:alpine
 
 RUN apk update && \
     apk add openssh sudo && \
+    chown nginx /var/www/html && \
     rc-update add ssh sysinit && \
     rc-update add nginx sysinit && \
     sed -i 's/#PubkeyAuthentication.*/PubkeyAuthentication yes/ig' /etc/ssh/sshd_config && \
