@@ -31,4 +31,5 @@ echo "$DEVUSER:$DEVPASS" | chpasswd
 mkdir /var/www/html/.ssh
 cat /key.pub >> /var/www/html/.ssh/authorized_keys
 chmod 600 /var/www/html/.ssh/authorized_keys
+chown $DEVUSER -R /var/www/html/.ssh
 
