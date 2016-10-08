@@ -22,7 +22,7 @@ RUN apk update && \
     sed -i 's/#RSAAuthentication.*/RSAAuthentication yes/ig' /etc/ssh/sshd_config
 
 ADD nginx.conf.d/nginx.conf /etc/nginx/
-ADD nginx.conf.d/root.conf /etc/nginx/conf.d/
+ADD nginx.conf.d/01-root.conf /etc/nginx/conf.d/
 ADD 01-startScript.start /etc/local.d
 
 EXPOSE 22 80
